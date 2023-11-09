@@ -7,3 +7,10 @@ www.github.com/scicomp-durham/gray-scott-sim
 
 ### Testing FrameWork
 https://github.com/google/googletest/blob/main/googletest/README.md
+
+
+### create a build system for the software, and
+
+
+
+### implement continuous integration (CI) for your repository.
