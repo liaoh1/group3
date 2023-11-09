@@ -1,16 +1,23 @@
 # group3
-This group work is created to build basic documentation for developing the given software, for implementing a build system and for continuous integration of repository.
+This teamwork documentation is created for developing a given software, from cloning an existing repositoty of gray-scott-simulator to implementing a testing framework. This also involves collaboraively building system and continuous integration of this code repository.
 
 
 ### Clone Repository
-www.github.com/scicomp-durham/gray-scott-sim
+https://github.com/scicomp-durham/gray-scott-sim
 
 ### Testing FrameWork
 https://github.com/google/googletest/blob/main/googletest/README.md
+https://github.com/mity/acutes
+
+Most of us have been familiarized with cmake command, but
+we still need to evaluate the best framework of test to approach.
 
 
-### create a build system for the software, and
+
+### Create a build system for the software, and
 
 
 
-### implement continuous integration (CI) for your repository.
+
+
+### Implement continuous integration (CI) for your repository.
