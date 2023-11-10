@@ -4,31 +4,16 @@ The project is designed to build a project  simulating a Gray-Scott reaction-dif
 (0.2) Check that the variables u and v are the same size.
 (0.3) Check that the simulation produces the mathematically correct answer when u = 0 and v = 0.
 
-
 # The conditions that need to be satisfied
 ## GoogleTest
 we already have GoogleTest in our repository, but in case there is something wrong and the clients don't have 
 GoogleTest, here is the steps:
-1. ```````git clone https://github.com/google/googletest.git -b v1.14.0  <br>
-2. cd googletest        # Main directory of the cloned repository. <br>
+1. git clone https://github.com/google/googletest.git -b v1.14.0<br>
+2. cd googletest <br>
 3. cd build <br>
 4. cmake -Dgtest_build_tests=on -DCMAKE_INSTALL_PREFIX=. ..
 5. make; install make
-```````
 
-# Testing FrameWork
-
-https://github.com/google/googletest/blob/main/googletest/README.md
-
-#### Install 
-```````git clone https://github.com/google/googletest.git -b v1.14.0  <br>
-cd googletest        # Main directory of the cloned repository. <br>
-mkdir build          # Create a directory to hold the build output. <br>
-cd build <br>
-cmake ..             # Generate native build scripts for GoogleTest.` <br>
-cmake -Dgtest_build_tests=on -DCMAKE_INSTALL_PREFIX=. ..
-make; install make
-```````
 ## CMake
 To run this project, you should have CMake in your local computer; in case you don't have one, here is 
 the line that could help you:<br>
@@ -80,3 +65,14 @@ You should see this if everything goes correctlt:
 
 # How to contact:
 Here is the email that you can contact: liaohaichen9@gamil.com 
+
+
+
+
+
+
+
+
+
+
+
