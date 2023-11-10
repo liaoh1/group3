@@ -21,18 +21,8 @@ make; make install
 
 
 
-#### Configure
+#### Configure and Compile the object file by adding CMakeLists.txt
 
-```
-find / -name "gtest.h" 2>/dev/null
-```
-
-#### Compile the object file 
-under group 3 working directory 
-
-```
-g++ -std=c++14 gs.cpp -I/Users/...../group3/googletest/build/include -L//Users/..../group3/googletest/build/lib -lgtest -lgtest_main -pthread -o us
-```
 
 #### Run the Test
 ```
@@ -70,10 +60,18 @@ v = 0.
 
 # Create a build system for the software 
 
-#### To Do
+#### Clear build instructions in a correct, concise format.
 
-Clear build instructions in a correct, concise format.
-
+```
+mkdir build
+cd build
+cmake .. 
+make
+```
+#### Run the Test
+```
+./us 
+```
 
 
 # Implement continuous integration (CI) for your repository.
