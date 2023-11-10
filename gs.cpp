@@ -5,6 +5,8 @@
 #include <fstream>
 #include <sstream>
 #include <cmath>
+#include <typeinfo>
+#include <gtest/gtest.h>
 
 // Define simulation parameters
 const int width = 256;                // Width of the grid
@@ -108,35 +110,77 @@ double countElementsAboveThreshold(double threshold) {
     return (double)(count)/(width*height);
 }
 
-int main(int argc, char* argv[]) {
-    if (argc != 5){
-        std::cout << "Usage: " << argv[0] << " <Du> <Dv> <F> <k> <threshold>" << std::endl;
-    }
-    else{
-      Du = std::stod(argv[1]);
-      Dv = std::stod(argv[2]);
-      F = std::stod(argv[3]);
-      k = std::stod(argv[4]);
-      threshold = std::stod(argv[5]);
-    }
-       
-    init();
-    std::cout << "Simulation initiated." << std::endl;
+TEST(TypeMatch, CheckTypeMatch) {
+    // Check that the type of F and k matches the element type of u and v
+    EXPECT_EQ(typeid(F), typeid(u[0][0])) << "The types of F and u are not match";
+    EXPECT_EQ(typeid(k), typeid(v[0][0])) << "The types of k and v are not match";
+}
 
-    // Main simulation loop
-    for (int iteration = 0; iteration < numIterations; ++iteration) {
-        simulateStep();
-        
-        // Periodically write to VTK file
-        if (iteration % outputInterval == 0) {
-            writeVTKFile(iteration);
+TEST(GridSizeTest, SameSize) {
+    bool rows = (u.size(), v.size());
+
+    // If the number of rows is the same, check each row's size is right.
+    if(rows)
+    {
+        for (size_t i = 0; i < u.size(); ++i) {
+            EXPECT_EQ(u[i].size(), v[i].size()) << "the row" << i << "doesn't match";
         }
     }
+}
+
+TEST(SimulationTest, HandlesZeroInput) {
+    const int width = 256;
+    const int height = 256;
+    const double dt = 0.06;
+    std::vector<std::vector<double>> u, v;
+
+    u = std::vector<std::vector<double>>(width, std::vector<double>(height, 0.0));
+    v = std::vector<std::vector<double>>(width, std::vector<double>(height, 0.0));
+
+    // Run the simulateStep
+    simulateStep();
+
+    // Check that u and v are still zero after simulateStep function called
+    for (int i = 0; i < width; ++i) {
+        for (int j = 0; j < height; ++j) {
+            EXPECT_DOUBLE_EQ(0.0, u[i][j]) << "u[" << i << "][" << j << "] is not zero.";
+            EXPECT_DOUBLE_EQ(0.0, v[i][j]) << "v[" << i << "][" << j << "] is not zero.";
+        }
+    }
+}
+
+int main(int argc, char* argv[]) {
+    ::testing::InitGoogleTest(&argc, argv);
+    // if (argc != 5){
+    //     std::cout << "Usage: " << argv[0] << " <Du> <Dv> <F> <k> <threshold>" << std::endl;
+    // }
+    // else{
+    //   Du = std::stod(argv[1]);
+    //   Dv = std::stod(argv[2]);
+    //   F = std::stod(argv[3]);
+    //   k = std::stod(argv[4]);
+    //   threshold = std::stod(argv[5]);
+    // }
+       
+    // init();
+    // std::cout << "Simulation initiated." << std::endl;
+
+    // // Main simulation loop
+    // for (int iteration = 0; iteration < numIterations; ++iteration) {
+    //     simulateStep();
+        
+    //     // Periodically write to VTK file
+    //     if (iteration % outputInterval == 0) {
+    //         writeVTKFile(iteration);
+    //     }
+    // }
 
     // count the amount of pixels above threshold at end.
-    double n = countElementsAboveThreshold(threshold);
-    std::cout << "Simulation completed: P(v > threshold) = " << n << std::endl;
-    
-    return 0;
+    // double n = countElementsAboveThreshold(threshold);
+    // std::cout << "Simulation completed: P(v > threshold) = " << n << std::endl;
+    return RUN_ALL_TESTS();
+    // return 0;
 }
+
+// g++ -std=c++14 gs.cpp -I/Users/haichenliao/Desktop/unitTest/group3/googletest/mybuild/include -L/Users/haichenliao/Desktop/unitTest/group3/googletest/mybuild/lib -lgtest -lgtest_main -pthread -o us
 
