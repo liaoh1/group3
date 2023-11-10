@@ -1,8 +1,8 @@
 # About the project 
 The project is designed to build a project  simulating a Gray-Scott reaction-diffusion system and output the results to VTK files for visualization, plus, the project has three test funtions which are:
-(0.1) Check that the type of the model parameters (F, k) matches that of the element type of the u and v vectors.<br>
-(0.2) Check that the variables u and v are the same size.<br>
-(0.3) Check that the simulation produces the mathematically correct answer when u = 0 and v = 0.<br>
+1. Check that the type of the model parameters (F, k) matches that of the element type of the u and v vectors.<br>
+2. Check that the variables u and v are the same size.<br>
+3. Check that the simulation produces the mathematically correct answer when u = 0 and v = 0.<br>
 
 # The conditions that need to be satisfied
 ## GoogleTest
