@@ -28,13 +28,13 @@ make; make install
 #### Compile the object file 
 under group 3 working directory 
 
-```g++ -std=c++14 gs.cpp -I/Users/...../group3/googletest/build/include -L//Users/..../group3/googletest/build/lib -lgtest -lgtest_main -pthread -o us 
+```
+g++ -std=c++14 gs.cpp -I/Users/...../group3/googletest/build/include -L//Users/..../group3/googletest/build/lib -lgtest -lgtest_main -pthread -o us
 ```
 
 #### Run the Test
 ```
-./us
-```
+./us```
 #### To Do
 (0.0) Inside Main Function
 ```::testing::InitGoogleTest(&argc,argv);
