@@ -20,7 +20,6 @@ make; make install
 ```````
 
 
-
 #### Configure and Compile the object file by adding CMakeLists.txt
 
 
@@ -62,8 +61,7 @@ v = 0.
 
 #### Clear build instructions in a correct, concise format.
 
-```
-mkdir build
+```mkdir build
 cd build
 cmake .. 
 make
