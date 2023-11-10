@@ -36,8 +36,7 @@ g++ -std=c++14 gs.cpp -I/Users/...../group3/googletest/build/include -L//Users/.
 ```./us ```
 #### To Do
 (0.0) Inside Main Function
-```::testing::InitGoogleTest(&argc,argv);
-return RUN_ALL_TESTS();```
+```::testing::InitGoogleTest(&argc,argv); return RUN_ALL_TESTS();```
     
 
 (0.1) Check that the type of the model parameters (F , k) matches that of the element type
