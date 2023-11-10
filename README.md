@@ -8,11 +8,26 @@ https://github.com/scicomp-durham/gray-scott-sim
 # Testing FrameWork
 
 https://github.com/google/googletest/blob/main/googletest/README.md
-https://github.com/mity/acutes
 
-Most of us have been familiarized with cmake command, but
-we still need to evaluate the best framework of test to approach.
+#### Install 
+`git clone https://github.com/google/googletest.git -b v1.14.0
+cd googletest        # Main directory of the cloned repository.
+mkdir build          # Create a directory to hold the build output.
+cd build
+cmake ..             # Generate native build scripts for GoogleTest.`
 
+`cmake -Dgtest_build_tests=on -DCMAKE_INSTALL_PREFIX=. ..`
+`make; install make`
+
+#### Configure
+
+``find / -name "gtest.h" 2>/dev/null ``
+
+#### Compile the object file 
+under group 3 working directory 
+
+``g++ -std=c++14 gs.cpp -I/Users/...../group3/googletest/build/include -L//Users/..../group3/googletest/build/lib -lgtest -lgtest_main -pthread -o us 
+``
 #### To Do
 (0.1) Check that the type of the model parameters (F , k) matches that of the element type
 of the u and v vectors.
