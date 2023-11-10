@@ -36,7 +36,8 @@ under group 3 working directory
 ```
 #### To Do
 (0.0) Inside Main Function
-```::testing::InitGoogleTest(&argc,argv); return RUN_ALL_TESTS();
+```
+::testing::InitGoogleTest(&argc,argv); return RUN_ALL_TESTS();
 ```
     
 
