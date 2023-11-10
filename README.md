@@ -40,3 +40,7 @@ Clear build instructions in a correct, concise format.
 
 
 # Implement continuous integration (CI) for your repository.
+
+
+#// g++ -std=c++14 gs.cpp -I/Users/haichenliao/Desktop/group3/gray-scott-sim/googletest/mybuild/include -L/Users/haichenliao/Desktop/group3/gray-scott-sim/googletest/mybuild/lib -lgtest -lgtest_main -pthread -o us
+
