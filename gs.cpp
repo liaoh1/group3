@@ -149,13 +149,6 @@ TEST(SimulationTest, HandlesZeroInput) {
     }
 }
 
-int main(int argc, char* argv[]) {
-    ::testing::InitGoogleTest(&argc, argv);
-    if (argc != 5){
-        std::cout << "Usage: " << argv[0] << " <Du> <Dv> <F> <k> <threshold>" << std::endl;
-    }
-}
-
 TEST(SimulationTest, HandlesZeroInput) {
     const int width = 256;
     const int height = 256;
@@ -206,9 +199,6 @@ int main(int argc, char* argv[]) {
     // count the amount of pixels above threshold at end.
     // double n = countElementsAboveThreshold(threshold);
     // std::cout << "Simulation completed: P(v > threshold) = " << n << std::endl;
-=======
-    double n = countElementsAboveThreshold(threshold);
-    std::cout << "Simulation completed: P(v > threshold) = " << n << std::endl;
     return RUN_ALL_TESTS();
     // return 0;
 }
