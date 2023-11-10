@@ -10,11 +10,11 @@ https://github.com/scicomp-durham/gray-scott-sim
 https://github.com/google/googletest/blob/main/googletest/README.md
 
 #### Install 
-`git clone https://github.com/google/googletest.git -b v1.14.0
-cd googletest        # Main directory of the cloned repository.
-mkdir build          # Create a directory to hold the build output.
-cd build
-cmake ..             # Generate native build scripts for GoogleTest.`
+`git clone https://github.com/google/googletest.git -b v1.14.0  <br>
+cd googletest        # Main directory of the cloned repository. <br>
+mkdir build          # Create a directory to hold the build output. <br>
+cd build <br>
+cmake ..             # Generate native build scripts for GoogleTest.` <br>
 
 `cmake -Dgtest_build_tests=on -DCMAKE_INSTALL_PREFIX=. ..`
 `make; install make`
