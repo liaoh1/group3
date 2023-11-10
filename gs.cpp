@@ -151,6 +151,34 @@ TEST(SimulationTest, HandlesZeroInput) {
 
 int main(int argc, char* argv[]) {
     ::testing::InitGoogleTest(&argc, argv);
+    if (argc != 5){
+        std::cout << "Usage: " << argv[0] << " <Du> <Dv> <F> <k> <threshold>" << std::endl;
+    }
+}
+
+TEST(SimulationTest, HandlesZeroInput) {
+    const int width = 256;
+    const int height = 256;
+    const double dt = 0.06;
+    std::vector<std::vector<double>> u, v;
+
+    u = std::vector<std::vector<double>>(width, std::vector<double>(height, 0.0));
+    v = std::vector<std::vector<double>>(width, std::vector<double>(height, 0.0));
+
+    // Run the simulateStep
+    simulateStep();
+
+    // Check that u and v are still zero after simulateStep function called
+    for (int i = 0; i < width; ++i) {
+        for (int j = 0; j < height; ++j) {
+            EXPECT_DOUBLE_EQ(0.0, u[i][j]) << "u[" << i << "][" << j << "] is not zero.";
+            EXPECT_DOUBLE_EQ(0.0, v[i][j]) << "v[" << i << "][" << j << "] is not zero.";
+        }
+    }
+}
+
+int main(int argc, char* argv[]) {
+    ::testing::InitGoogleTest(&argc, argv);
     // if (argc != 5){
     //     std::cout << "Usage: " << argv[0] << " <Du> <Dv> <F> <k> <threshold>" << std::endl;
     // }
@@ -178,6 +206,9 @@ int main(int argc, char* argv[]) {
     // count the amount of pixels above threshold at end.
     // double n = countElementsAboveThreshold(threshold);
     // std::cout << "Simulation completed: P(v > threshold) = " << n << std::endl;
+=======
+    double n = countElementsAboveThreshold(threshold);
+    std::cout << "Simulation completed: P(v > threshold) = " << n << std::endl;
     return RUN_ALL_TESTS();
     // return 0;
 }
