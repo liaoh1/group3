@@ -23,7 +23,8 @@ make; make install
 
 #### Configure
 
-```find / -name "gtest.h" 2>/dev/null
+```
+find / -name "gtest.h" 2>/dev/null
 ```
 
 #### Compile the object file 
