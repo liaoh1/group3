@@ -33,8 +33,8 @@ under group 3 working directory
 
 #### To Do
 (0.0) Inside Main Function
-``::testing::InitGoogleTest(&argc,argv); //count, variable
-    return RUN_ALL_TESTS();``
+`::testing::InitGoogleTest(&argc,argv);` 
+` return RUN_ALL_TESTS();`
     
 
 (0.1) Check that the type of the model parameters (F , k) matches that of the element type
