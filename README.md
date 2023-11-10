@@ -1,9 +1,20 @@
-# group3
-This teamwork documentation is created for developing a given software, from cloning an existing repositoty of gray-scott-simulator to implementing a testing framework. This also involves collaboraively building system and continuous integration of this code repository.
+# About the project 
+The project is designed to build a project  simulating a Gray-Scott reaction-diffusion system and output the results to VTK files for visualization, plus, the project has three test funtions which are:
+(0.1) Check that the type of the model parameters (F, k) matches that of the element type of the u and v vectors.
+(0.2) Check that the variables u and v are the same size.
+(0.3) Check that the simulation produces the mathematically correct answer when u = 0 and v = 0.
 
 
-# Clone Repository
-https://github.com/scicomp-durham/gray-scott-sim
+# The conditions that need to be satisfied
+## GoogleTest
+we already have GoogleTest in our repository, but in case there is something wrong and the clients don't have 
+GoogleTest, here is the steps:
+1. ```````git clone https://github.com/google/googletest.git -b v1.14.0  <br>
+2. cd googletest        # Main directory of the cloned repository. <br>
+3. cd build <br>
+4. cmake -Dgtest_build_tests=on -DCMAKE_INSTALL_PREFIX=. ..
+5. make; install make
+```````
 
 # Testing FrameWork
 
@@ -16,81 +27,56 @@ mkdir build          # Create a directory to hold the build output. <br>
 cd build <br>
 cmake ..             # Generate native build scripts for GoogleTest.` <br>
 cmake -Dgtest_build_tests=on -DCMAKE_INSTALL_PREFIX=. ..
-make; make install
+make; install make
 ```````
+## CMake
+To run this project, you should have CMake in your local computer; in case you don't have one, here is 
+the line that could help you:<br>
+https://cgold.readthedocs.io/en/latest/first-step/installation.html
 
+# How To Run
+## You should have 5 files or directory at first:<br>
+1. CMakeLists.txt
+2. README.md
+3. build(directory)
+4. googletest
+5. gs.cpp
+## Go to build directory
+1. cd build
+2. cmake ..
+3. make
+4. ./us
+## Clean up
+git clean -d -f -x(this will remove all the files cmake produced)
+## The expected result
+You should see this if everything goes correctlt:
+[==========] Running 3 tests from 3 test suites.<br>
+[----------] Global test environment set-up.<br>
+[----------] 1 test from TypeMatch<br>
+[ RUN      ] TypeMatch.CheckTypeMatch<br>
+[       OK ] TypeMatch.CheckTypeMatch (0 ms)<br>
+[----------] 1 test from TypeMatch (0 ms total)<br>
 
-#### Configure and Compile the object file by adding CMakeLists.txt
-```
-cmake_minimum_required(VERSION 3.5)  # Minimum version of CMake
+[----------] 1 test from GridSizeTest<br>
+[ RUN      ] GridSizeTest.SameSize<br>
+[       OK ] GridSizeTest.SameSize (0 ms)<br>
+[----------] 1 test from GridSizeTest (0 ms total)<br>
 
-project(MyProject)  # Name of your project
+[----------] 1 test from SimulationTest<br>
+[ RUN      ] SimulationTest.HandlesZeroInput<br>
+[       OK ] SimulationTest.HandlesZeroInput (18 ms)<br>
+[----------] 1 test from SimulationTest (18 ms total)<br>
 
-# Set C++14 standard
-set(CMAKE_CXX_STANDARD 14)
+[----------] Global test environment tear-down<br>
+[==========] 3 tests from 3 test suites ran. (18 ms total)<br>
+[  PASSED  ] 3 tests.<br>
 
-# Google Test setup
-add_subdirectory(googletest)  # Add googletest subdirectory
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})  # Include Google Test headers
+# Participations:
+1. Amber | Yi-Hua Chang @Amberisfree
+2. Ziteng Xu @fnhp54
+3. Yucheng Niu @cattle12
+4. Jiangyue Liu @moonbro1999
+5. Haichen Liao @liaoh1
 
-# Define executable
-add_executable(us gs.cpp)  # Create executable "us" from "gs.cpp"
-
-# Link Google Test libraries
-target_link_libraries(us gtest gtest_main pthread)
-```
-#### Run the Test
-```
-./us 
-```
-#### To Do
-(0.0) Inside Main Function
-
-```
-::testing::InitGoogleTest(&argc,argv); return RUN_ALL_TESTS();
-```
-    
-
-(0.1) Check that the type of the model parameters (F , k) matches that of the element type
-of the u and v vectors.
-
-```
-TEST(checkVectorF , checkVectorK ) {
-    EXPECT_EQ(typeid(F),typeid(u[0][0]))<<"F and u are not match";
-    EXPECT_EQ(typeid(k),typeid(v[0][0]))<<"K and v are not match";
-}
-```
-
-(0.2) Check that the variables u and v are the same size. (0.3) Check that the simulation produces the mathematically correct answer when u = 0 and
-v = 0.
-
-`code`
-
-(0.3) Check that the simulation produces the mathematically correct answer when u = 0 and
-v = 0.
-
-`code`
-
-
-
-# Create a build system for the software 
-
-#### Clear build instructions in a correct, concise format.
-
-```
-mkdir build
-cd build
-cmake .. 
-make
-```
-#### Run the Test
-```
-./us 
-```
-
-
-# Implement continuous integration (CI) for your repository.
-
-
-
-
+# How to contact:
+Here is the email that you can contact: liaohaichen9@gamil.com 
