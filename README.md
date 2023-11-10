@@ -16,7 +16,7 @@ mkdir build          # Create a directory to hold the build output. <br>
 cd build <br>
 cmake ..             # Generate native build scripts for GoogleTest.` <br>
 cmake -Dgtest_build_tests=on -DCMAKE_INSTALL_PREFIX=. ..
-make; install make
+make; make install
 ```````
 
 
