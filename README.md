@@ -29,12 +29,16 @@ make; make install
 under group 3 working directory 
 
 ``g++ -std=c++14 gs.cpp -I/Users/...../group3/googletest/build/include -L//Users/..../group3/googletest/build/lib -lgtest -lgtest_main -pthread -o us 
-``
 
+
+#### Run the Test
+```
+./us
+```
 #### To Do
 (0.0) Inside Main Function
-`::testing::InitGoogleTest(&argc,argv);` 
-` return RUN_ALL_TESTS();`
+```::testing::InitGoogleTest(&argc,argv);
+return RUN_ALL_TESTS();```
     
 
 (0.1) Check that the type of the model parameters (F , k) matches that of the element type
