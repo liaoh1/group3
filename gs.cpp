@@ -5,8 +5,9 @@
 #include <fstream>
 #include <sstream>
 #include <cmath>
-#include <gtest/gtest.h>
 #include <typeinfo>
+#include <gtest/gtest.h>
+
 // Define simulation parameters
 const int width = 256;                // Width of the grid
 const int height = 256;               // Height of the grid
@@ -153,28 +154,59 @@ int main(int argc, char* argv[]) {
     if (argc != 5){
         std::cout << "Usage: " << argv[0] << " <Du> <Dv> <F> <k> <threshold>" << std::endl;
     }
-    else{
-      Du = std::stod(argv[1]);
-      Dv = std::stod(argv[2]);
-      F = std::stod(argv[3]);
-      k = std::stod(argv[4]);
-      threshold = std::stod(argv[5]);
-    }
-       
-    init();
-    std::cout << "Simulation initiated." << std::endl;
+}
 
-    // Main simulation loop
-    for (int iteration = 0; iteration < numIterations; ++iteration) {
-        simulateStep();
-        
-        // Periodically write to VTK file
-        if (iteration % outputInterval == 0) {
-            writeVTKFile(iteration);
+TEST(SimulationTest, HandlesZeroInput) {
+    const int width = 256;
+    const int height = 256;
+    const double dt = 0.06;
+    std::vector<std::vector<double>> u, v;
+
+    u = std::vector<std::vector<double>>(width, std::vector<double>(height, 0.0));
+    v = std::vector<std::vector<double>>(width, std::vector<double>(height, 0.0));
+
+    // Run the simulateStep
+    simulateStep();
+
+    // Check that u and v are still zero after simulateStep function called
+    for (int i = 0; i < width; ++i) {
+        for (int j = 0; j < height; ++j) {
+            EXPECT_DOUBLE_EQ(0.0, u[i][j]) << "u[" << i << "][" << j << "] is not zero.";
+            EXPECT_DOUBLE_EQ(0.0, v[i][j]) << "v[" << i << "][" << j << "] is not zero.";
         }
     }
+}
+
+int main(int argc, char* argv[]) {
+    ::testing::InitGoogleTest(&argc, argv);
+    // if (argc != 5){
+    //     std::cout << "Usage: " << argv[0] << " <Du> <Dv> <F> <k> <threshold>" << std::endl;
+    // }
+    // else{
+    //   Du = std::stod(argv[1]);
+    //   Dv = std::stod(argv[2]);
+    //   F = std::stod(argv[3]);
+    //   k = std::stod(argv[4]);
+    //   threshold = std::stod(argv[5]);
+    // }
+       
+    // init();
+    // std::cout << "Simulation initiated." << std::endl;
+
+    // // Main simulation loop
+    // for (int iteration = 0; iteration < numIterations; ++iteration) {
+    //     simulateStep();
+        
+    //     // Periodically write to VTK file
+    //     if (iteration % outputInterval == 0) {
+    //         writeVTKFile(iteration);
+    //     }
+    // }
 
     // count the amount of pixels above threshold at end.
+    // double n = countElementsAboveThreshold(threshold);
+    // std::cout << "Simulation completed: P(v > threshold) = " << n << std::endl;
+=======
     double n = countElementsAboveThreshold(threshold);
     std::cout << "Simulation completed: P(v > threshold) = " << n << std::endl;
     return RUN_ALL_TESTS();

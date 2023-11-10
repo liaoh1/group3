@@ -1,0 +1,10 @@
+libdir=/Users/haichenliao/Desktop/group3/gray-scott-sim/googletest/mybuild/lib
+includedir=/Users/haichenliao/Desktop/group3/gray-scott-sim/googletest/mybuild/include
+
+Name: gmock
+Description: GoogleMock (without main() function)
+Version: 1.14.0
+URL: https://github.com/google/googletest
+Requires: gtest = 1.14.0
+Libs: -L${libdir} -lgmock 
+Cflags: -I${includedir} -DGTEST_HAS_PTHREAD=1
