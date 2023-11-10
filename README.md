@@ -2,10 +2,11 @@
 This teamwork documentation is created for developing a given software, from cloning an existing repositoty of gray-scott-simulator to implementing a testing framework. This also involves collaboraively building system and continuous integration of this code repository.
 
 
-### Clone Repository
+# Clone Repository
 https://github.com/scicomp-durham/gray-scott-sim
 
-### Testing FrameWork
+# Testing FrameWork
+
 https://github.com/google/googletest/blob/main/googletest/README.md
 https://github.com/mity/acutes
 
@@ -30,11 +31,12 @@ v = 0.
 
 
 
-### Create a build system for the software 
+# Create a build system for the software 
 
 #### To Do
+
 Clear build instructions in a correct, concise format.
 
 
 
-### Implement continuous integration (CI) for your repository.
+# Implement continuous integration (CI) for your repository.
