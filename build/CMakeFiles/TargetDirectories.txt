@@ -1,4 +1,5 @@
-/Users/haichenliao/Desktop/unitTest/group3/build/CMakeFiles/us.dir
+/Users/haichenliao/Desktop/unitTest/group3/build/CMakeFiles/gs.dir
+/Users/haichenliao/Desktop/unitTest/group3/build/CMakeFiles/test.dir
 /Users/haichenliao/Desktop/unitTest/group3/build/CMakeFiles/edit_cache.dir
 /Users/haichenliao/Desktop/unitTest/group3/build/CMakeFiles/rebuild_cache.dir
 /Users/haichenliao/Desktop/unitTest/group3/build/CMakeFiles/list_install_components.dir
